@@ -35,26 +35,21 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.studentIDeditbox = new System.Windows.Forms.TextBox();
-            this.studentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.iDVerifyDataSet = new IDVerifyDB.IDVerifyDataSet();
-            this.studentsTableAdapter = new IDVerifyDB.IDVerifyDataSetTableAdapters.studentsTableAdapter();
-            this.pictureBoxStudent = new System.Windows.Forms.PictureBox();
-            this.searchButton = new System.Windows.Forms.Button();
             this.importButton = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.stopButton = new System.Windows.Forms.Button();
             this.startButton = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.searchButton = new System.Windows.Forms.Button();
+            this.studentIDeditbox = new System.Windows.Forms.TextBox();
+            this.pictureBoxStudent = new System.Windows.Forms.PictureBox();
             this.labelStudentID = new System.Windows.Forms.Label();
             this.labelStudentName = new System.Windows.Forms.Label();
             this.labelAddress = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.studentsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iDVerifyDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStudent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStudent)).BeginInit();
             this.SuspendLayout();
             // 
             // cboDevice
@@ -124,61 +119,6 @@
             this.linkLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.searchButton);
-            this.groupBox2.Controls.Add(this.studentIDeditbox);
-            this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(24, 12);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(450, 64);
-            this.groupBox2.TabIndex = 8;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Student ID";
-            // 
-            // studentIDeditbox
-            // 
-            this.studentIDeditbox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.studentIDeditbox.Location = new System.Drawing.Point(12, 21);
-            this.studentIDeditbox.Name = "studentIDeditbox";
-            this.studentIDeditbox.Size = new System.Drawing.Size(391, 29);
-            this.studentIDeditbox.TabIndex = 0;
-            this.studentIDeditbox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
-            // 
-            // studentsBindingSource
-            // 
-            this.studentsBindingSource.DataMember = "students";
-            this.studentsBindingSource.DataSource = this.iDVerifyDataSet;
-            // 
-            // iDVerifyDataSet
-            // 
-            this.iDVerifyDataSet.DataSetName = "IDVerifyDataSet";
-            this.iDVerifyDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // studentsTableAdapter
-            // 
-            this.studentsTableAdapter.ClearBeforeFill = true;
-            // 
-            // pictureBoxStudent
-            // 
-            this.pictureBoxStudent.Image = global::IDVerifyDB.Properties.Resources.istockphoto_1337144146_170667a;
-            this.pictureBoxStudent.Location = new System.Drawing.Point(498, 14);
-            this.pictureBoxStudent.Name = "pictureBoxStudent";
-            this.pictureBoxStudent.Size = new System.Drawing.Size(116, 115);
-            this.pictureBoxStudent.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxStudent.TabIndex = 9;
-            this.pictureBoxStudent.TabStop = false;
-            // 
-            // searchButton
-            // 
-            this.searchButton.Image = global::IDVerifyDB.Properties.Resources.Asset_4;
-            this.searchButton.Location = new System.Drawing.Point(409, 20);
-            this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(32, 32);
-            this.searchButton.TabIndex = 10;
-            this.searchButton.UseVisualStyleBackColor = true;
-            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
-            // 
             // importButton
             // 
             this.importButton.Image = global::IDVerifyDB.Properties.Resources.Asset_1;
@@ -217,6 +157,47 @@
             this.startButton.TabIndex = 1;
             this.startButton.UseVisualStyleBackColor = true;
             this.startButton.Click += new System.EventHandler(this.startButton_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.searchButton);
+            this.groupBox2.Controls.Add(this.studentIDeditbox);
+            this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(24, 12);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(450, 64);
+            this.groupBox2.TabIndex = 8;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Student ID";
+            // 
+            // searchButton
+            // 
+            this.searchButton.Image = global::IDVerifyDB.Properties.Resources.Asset_4;
+            this.searchButton.Location = new System.Drawing.Point(409, 20);
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(32, 32);
+            this.searchButton.TabIndex = 10;
+            this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
+            // 
+            // studentIDeditbox
+            // 
+            this.studentIDeditbox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.studentIDeditbox.Location = new System.Drawing.Point(12, 21);
+            this.studentIDeditbox.Name = "studentIDeditbox";
+            this.studentIDeditbox.Size = new System.Drawing.Size(391, 29);
+            this.studentIDeditbox.TabIndex = 0;
+            this.studentIDeditbox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
+            // 
+            // pictureBoxStudent
+            // 
+            this.pictureBoxStudent.Image = global::IDVerifyDB.Properties.Resources.istockphoto_1337144146_170667a;
+            this.pictureBoxStudent.Location = new System.Drawing.Point(498, 14);
+            this.pictureBoxStudent.Name = "pictureBoxStudent";
+            this.pictureBoxStudent.Size = new System.Drawing.Size(116, 115);
+            this.pictureBoxStudent.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxStudent.TabIndex = 9;
+            this.pictureBoxStudent.TabStop = false;
             // 
             // labelStudentID
             // 
@@ -265,12 +246,10 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.studentsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iDVerifyDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStudent)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -291,9 +270,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox studentIDeditbox;
         private System.Windows.Forms.Button searchButton;
-        private IDVerifyDataSet iDVerifyDataSet;
-        private System.Windows.Forms.BindingSource studentsBindingSource;
-        private IDVerifyDataSetTableAdapters.studentsTableAdapter studentsTableAdapter;
         private System.Windows.Forms.PictureBox pictureBoxStudent;
         private System.Windows.Forms.Label labelStudentID;
         private System.Windows.Forms.Label labelStudentName;
