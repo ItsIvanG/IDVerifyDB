@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using AForge.Video.DirectShow;
+using System.Data.OleDb;
 using ZXing;
 
 namespace IDVerifyDB
@@ -17,9 +18,9 @@ namespace IDVerifyDB
     {
         FilterInfoCollection filterInfoCollection;
         VideoCaptureDevice captureDevice;
-        string con_string = "Data Source=DESKTOP-Q9SE38B\\SQLEXPRESS;Initial Catalog=qr_codes;Integrated Security=True";
+        string con_string = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\itsiv\\source\\repos\\IDVerifyDB\\IDVerifyDB\\IDVerify.accdb";
         bool camOn=false;
-        SqlConnection connection;
+        
         public Form1()
         {
             InitializeComponent();
@@ -94,11 +95,11 @@ namespace IDVerifyDB
 
         private void newLog(string log)
         {
-            connection = new SqlConnection(con_string);
+            OleDbConnection connection = new OleDbConnection(con_string);
             connection.Open();
-            SqlCommand cmd = new SqlCommand("Select * from students where id=@id", connection);
+            OleDbCommand cmd = new OleDbCommand("Select * from students where id=@id", connection);
             cmd.Parameters.AddWithValue("id", log);
-            SqlDataReader reader = cmd.ExecuteReader();
+            OleDbDataReader reader = cmd.ExecuteReader();
             if (reader.Read())
             {
                 listBox1.Items.Add(reader["id"]+" "+ reader["lastname"]+" " + reader["firstname"] + " " +reader["middlename"] + " "+DateTime.Now);
