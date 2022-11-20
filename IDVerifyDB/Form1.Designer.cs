@@ -105,10 +105,12 @@
             // 
             // listBox1
             // 
+            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 25;
             this.listBox1.Location = new System.Drawing.Point(794, 14);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(548, 420);
+            this.listBox1.Size = new System.Drawing.Size(548, 404);
             this.listBox1.TabIndex = 6;
             // 
             // Form1
@@ -124,7 +126,7 @@
             this.Controls.Add(this.startButton);
             this.Controls.Add(this.pictureBox1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "ID Verification";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

@@ -74,22 +74,7 @@ namespace IDVerifyDB
                 BarcodeReader reader = new BarcodeReader();
                 Result result = reader.Decode((Bitmap)pictureBox1.Image);
                 if (result != null)
-                    listBox1.Items.Add(result.Text);
-                //try
-                //{
-                //    SqlConnection connection = new SqlConnection(con_string);
-                //    SqlCommand command = connection.CreateCommand();
-
-                //    connection.Open();
-
-                //    command.CommandText = "INSERT INTO dbo.log (studentno) VALUES ()";
-
-                //    connection.Close();
-                //}
-                //catch (Exception ex)
-                //{
-                //    listBox1.Items.Add(ex.Message);
-                //}
+                    newLog(result.Text);
             }
 
         }
@@ -103,9 +88,28 @@ namespace IDVerifyDB
                     BarcodeReader reader = new BarcodeReader();
                     Result result = reader.Decode((Bitmap)pictureBox2.Image);
                     if (result != null)
-                        MessageBox.Show(result.Text);
+                        newLog(result.Text);
                 }
             }
+        }
+
+        private void newLog(string log)
+        {
+            SqlConnection connection = new SqlConnection(con_string);
+            connection.Open();
+            SqlCommand cmd = new SqlCommand("Select * from students where id=@id", connection);
+            cmd.Parameters.AddWithValue("id", log);
+            SqlDataReader reader = cmd.ExecuteReader();
+            if (reader.Read())
+            {
+                listBox1.Items.Add(reader["id"]+" "+ reader["lastname"]+" " + reader["firstname"] + " " +reader["middlename"] + " "+DateTime.Now);
+                connection.Close();
+            }
+            else
+            {
+                connection.Close();
+            }
+            
         }
 
     }
