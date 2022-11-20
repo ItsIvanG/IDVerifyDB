@@ -86,6 +86,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="IDVerifyDataSet.xsc">
       <DependentUpon>IDVerifyDataSet.xsd</DependentUpon>
@@ -111,6 +112,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\istockphoto-1337144146-170667a.jpg" />
+    <None Include="Resources\Asset 4.png" />
+    <None Include="Resources\Asset 1.png" />
+    <None Include="Resources\Asset 2.png" />
+    <None Include="Resources\Asset 3.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="IDVerify.accdb">
