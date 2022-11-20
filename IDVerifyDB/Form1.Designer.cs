@@ -140,6 +140,7 @@
             // 
             // stopButton
             // 
+            this.stopButton.Enabled = false;
             this.stopButton.Image = global::IDVerifyDB.Properties.Resources.Asset_2;
             this.stopButton.Location = new System.Drawing.Point(371, 17);
             this.stopButton.Name = "stopButton";
