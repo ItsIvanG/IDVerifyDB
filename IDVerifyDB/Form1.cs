@@ -19,9 +19,17 @@ namespace IDVerifyDB
         VideoCaptureDevice captureDevice;
         string con_string = "Data Source=DESKTOP-Q9SE38B\\SQLEXPRESS;Initial Catalog=qr_codes;Integrated Security=True";
         bool camOn=false;
+        SqlConnection connection;
         public Form1()
         {
             InitializeComponent();
+
+            filterInfoCollection = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+            foreach (FilterInfo filterInfo in filterInfoCollection)
+                cboDevice.Items.Add(filterInfo.Name);
+            cboDevice.SelectedIndex = 0;
+
+
         }
 
 
@@ -51,17 +59,6 @@ namespace IDVerifyDB
   
             Bitmap bitmap = (Bitmap)eventArgs.Frame.Clone();
             pictureBox1.Image = bitmap;
-        }
-
-
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-            filterInfoCollection = new FilterInfoCollection(FilterCategory.VideoInputDevice);
-            foreach (FilterInfo filterInfo in filterInfoCollection)
-                cboDevice.Items.Add(filterInfo.Name);
-            cboDevice.SelectedIndex = 0;
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -97,7 +94,7 @@ namespace IDVerifyDB
 
         private void newLog(string log)
         {
-            SqlConnection connection = new SqlConnection(con_string);
+            connection = new SqlConnection(con_string);
             connection.Open();
             SqlCommand cmd = new SqlCommand("Select * from students where id=@id", connection);
             cmd.Parameters.AddWithValue("id", log);
