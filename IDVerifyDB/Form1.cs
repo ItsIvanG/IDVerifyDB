@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -18,7 +16,7 @@ namespace IDVerifyDB
     {
         FilterInfoCollection filterInfoCollection;
         VideoCaptureDevice captureDevice;
-        string con_string = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\itsiv\\source\\repos\\IDVerifyDB\\IDVerifyDB\\IDVerify.accdb";
+        string con_string = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=IDVerify.accdb";
         bool camOn=false;
         
         public Form1()
