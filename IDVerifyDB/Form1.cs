@@ -18,6 +18,7 @@ namespace IDVerifyDB
         FilterInfoCollection filterInfoCollection;
         VideoCaptureDevice captureDevice;
         string con_string = "Data Source=DESKTOP-Q9SE38B\\SQLEXPRESS;Initial Catalog=qr_codes;Integrated Security=True";
+        bool camOn=false;
         public Form1()
         {
             InitializeComponent();
@@ -33,6 +34,7 @@ namespace IDVerifyDB
             captureDevice = new VideoCaptureDevice(filterInfoCollection[cboDevice.SelectedIndex].MonikerString);
             captureDevice.NewFrame += CaptureDevice_NewFrame;
             captureDevice.Start();
+            camOn= true;
 
         }
         private void stopButton_Click(object sender, EventArgs e)
@@ -64,7 +66,7 @@ namespace IDVerifyDB
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (captureDevice.IsRunning)
+            if (camOn)
                 captureDevice.Stop();
         }
         private void timer1_Tick_1(object sender, EventArgs e)
