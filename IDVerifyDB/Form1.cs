@@ -70,6 +70,7 @@ namespace IDVerifyDB
   
             Bitmap bitmap = (Bitmap)eventArgs.Frame.Clone();
             pictureBox1.Image = bitmap;
+
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -85,8 +86,10 @@ namespace IDVerifyDB
                 Result result = reader.Decode((Bitmap)pictureBox1.Image);
                 if (result != null)
                 {
+
                     newLog(result.Text);
                     studentIDeditbox.Text = result.Text;
+                    
                 }
                     
             }
@@ -101,25 +104,33 @@ namespace IDVerifyDB
             cmd.Parameters.AddWithValue("id", log);
             OleDbDataReader reader = cmd.ExecuteReader();
 
-            while (reader.Read())
+            if (reader.Read())
             {
-                if ( lastscanned != reader["id"].ToString())
+
+                if (lastscanned != log)
                 {
                     listBox1.Items.Insert(0, reader["id"] + " " + reader["lastname"] + " " + reader["firstname"] + " " + reader["middlename"] + " " + DateTime.Now);
                     labelStudentID.Text = reader["id"].ToString();
                     labelStudentName.Text = reader["lastname"].ToString() + " " + reader["firstname"].ToString() + " " + reader["middlename"].ToString();
                     labelAddress.Text = reader["address"].ToString();
-                    lastscanned = reader["id"].ToString();
+                    lastscanned = log;
                 }
+
                 
-            }connection.Close();
-            //else
-            //{
-            //    MessageBox.Show("Can't find query in database.");
-            //    connection.Close();
-            //}
-            
+            }
+            else
+            {
+                if (lastscanned != log)
+                {
+                    listBox1.Items.Insert(0, "Can't find query in database.");
+                    lastscanned = log;
+                }
+            }
+            connection.Close();
         }
+
+
+            
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
