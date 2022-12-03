@@ -100,10 +100,11 @@ namespace IDVerifyDB
         {
             OleDbConnection connection = new OleDbConnection(con_string);
             connection.Open();
-            OleDbCommand cmd = new OleDbCommand("Select * from students where id=@id", connection);
+            OleDbCommand cmd = new OleDbCommand("Select * from students where firstname=@id", connection);
             cmd.Parameters.AddWithValue("id", log);
             OleDbDataReader reader = cmd.ExecuteReader();
-            if (reader.Read())
+
+            while (reader.Read())
             {
 
                 if (lastscanned != log)
