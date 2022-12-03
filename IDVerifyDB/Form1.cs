@@ -104,7 +104,7 @@ namespace IDVerifyDB
             cmd.Parameters.AddWithValue("id", log);
             OleDbDataReader reader = cmd.ExecuteReader();
 
-            while (reader.Read())
+            if (reader.Read())
             {
 
                 if (lastscanned != log)
