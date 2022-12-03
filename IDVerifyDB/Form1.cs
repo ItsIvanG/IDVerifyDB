@@ -97,10 +97,11 @@ namespace IDVerifyDB
         {
             OleDbConnection connection = new OleDbConnection(con_string);
             connection.Open();
-            OleDbCommand cmd = new OleDbCommand("Select * from students where id=@id", connection);
+            OleDbCommand cmd = new OleDbCommand("Select * from students where firstname=@id", connection);
             cmd.Parameters.AddWithValue("id", log);
             OleDbDataReader reader = cmd.ExecuteReader();
-            if (reader.Read())
+
+            while (reader.Read())
             {
                 if ( lastscanned != reader["id"].ToString())
                 {
@@ -110,13 +111,13 @@ namespace IDVerifyDB
                     labelAddress.Text = reader["address"].ToString();
                     lastscanned = reader["id"].ToString();
                 }
-                connection.Close();
-            }
-            else
-            {
-                MessageBox.Show("Can't find query in database.");
-                connection.Close();
-            }
+                
+            }connection.Close();
+            //else
+            //{
+            //    MessageBox.Show("Can't find query in database.");
+            //    connection.Close();
+            //}
             
         }
 
