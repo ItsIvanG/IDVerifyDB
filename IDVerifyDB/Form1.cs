@@ -100,7 +100,7 @@ namespace IDVerifyDB
         {
             OleDbConnection connection = new OleDbConnection(con_string);
             connection.Open();
-            OleDbCommand cmd = new OleDbCommand("Select * from students where firstname=@id", connection);
+            OleDbCommand cmd = new OleDbCommand("Select * from students where id=@id", connection);
             cmd.Parameters.AddWithValue("id", log);
             OleDbDataReader reader = cmd.ExecuteReader();
 
